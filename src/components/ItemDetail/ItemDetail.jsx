@@ -1,8 +1,12 @@
 import React from 'react'
 import Item from '../Item/Item';
 import "./ItemDetail.css"
+import { useCart } from '../../context/CartContext';
 
 const ItemDetail = ({ item }) => {
+
+  const {addItem} = useCart();
+
   return (
     <article className='item-detail-container'>
       <div className='item-detail-img'>
@@ -13,7 +17,7 @@ const ItemDetail = ({ item }) => {
         <h1 className='gold'>{item.name}</h1>
         <p>{item.description}</p>
         <h2 className='gold'>$ {item.price}</h2>
-        <button className="btn">Agregar al carrito</button>
+        <button className="btn" onClick={() => addItem(item)}>Agregar al carrito</button>
       </div>
     </article>
   );

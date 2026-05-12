@@ -1,4 +1,4 @@
-import logo from "../../../public/img/logo-nav.png"
+import logo from "../../assets/logo-nav.png"
 import React from 'react'
 import Nav from "../Nav/Nav"
 import "./Header.css"
