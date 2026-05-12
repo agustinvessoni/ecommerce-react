@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Onyx Stealth Chrono",
+    "description": "Cronógrafo de alto rendimiento con acabado en acero cepillado y dial texturizado para un look moderno y audaz.",
+    "price": 450,
+    "image": "/img/reloj-1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Argentum Classic",
+    "description": "Elegancia atemporal en plata pura con dial blanco minimalista y brazalete de malla fina de acero inoxidable.",
+    "price": 280,
+    "image": "/img/reloj-2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Titanium Grey Edition",
+    "description": "Diseño robusto inspirado en la precisión técnica, montado sobre una base de roca natural para resaltar su durabilidad.",
+    "price": 320,
+    "image": "/img/reloj-3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Aura Rose Gold",
+    "description": "Reloj minimalista con caja de oro rosa y correa de cuero genuino color chocolate. La esencia de la sofisticación urbana.",
+    "price": 190,
+    "image": "/img/reloj-4.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Midnight Azure",
+    "description": "Esfera azul profundo con detalles en cromo y cronómetros de precisión, diseñado para el ejecutivo contemporáneo.",
+    "price": 550,
+    "image": "/img/reloj-5.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Imperial Roman Leather",
+    "description": "Estilo clásico con números romanos y caja de acero pulido, complementado con una correa de cuero vintage.",
+    "price": 250,
+    "image": "/img/reloj-6.jpg"
+  }
+]

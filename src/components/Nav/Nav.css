@@ -1,0 +1,21 @@
+.nav-list{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-list li{
+    font-size: 26px;
+    margin: 0.5rem;
+}
+
+.nav-list li a{
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.nav-list li a:hover{
+    transform: translateY(-2px);
+    color: white;
+}
