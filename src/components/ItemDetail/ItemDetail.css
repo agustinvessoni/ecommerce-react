@@ -44,12 +44,13 @@
     text-align: left;
 }
 
-.item-detail-info h2{
+.item-detail-price{
     text-align: left !important;
 }
 
 .item-detail-info button{
     font-size: 16px;
+    text-align: center;
 }
 
 

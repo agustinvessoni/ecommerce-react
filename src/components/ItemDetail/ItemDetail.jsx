@@ -16,7 +16,7 @@ const ItemDetail = ({ item }) => {
       <div className='item-detail-info'>
         <h1 className='gold'>{item.name}</h1>
         <p>{item.description}</p>
-        <h2 className='gold'>$ {item.price}</h2>
+        <h2 className='gold item-detail-price'>$ {item.price}</h2>
         <button className="btn" onClick={() => addItem(item)}>Agregar al carrito</button>
       </div>
     </article>

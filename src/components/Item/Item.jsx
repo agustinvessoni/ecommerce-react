@@ -6,7 +6,7 @@ const Item = ({ name, price, image, children }) => {
     <article className="card">
       <img src={image} alt="imagen" />
       <h3 className='gold'>{name}</h3>
-      <p>$ {price}</p>
+      <p className='card-price-item'>$ {price}</p>
       {children}
     </article>
   )

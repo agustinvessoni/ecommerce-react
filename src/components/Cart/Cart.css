@@ -1,0 +1,61 @@
+
+.cart-item-info h4, p, button {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.cart-action-buttons button{
+    margin-right: 10px;
+}
+
+.cart-empty-container h2, p{
+    margin-top: 10px;
+}
+
+.btn-back-to-shop {
+    display: inline-block;
+    margin-top: 25px; 
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.btn-back-to-shop:hover{
+    text-decoration: underline;
+}
+
+/*... */
+
+/* El contenedor (la caja-molde) */
+.item-cart-img {
+    width: 120px;          /* Ancho fijo para la caja */
+    height: 120px;         /* Alto fijo para la caja */
+    display: flex;         /* Usamos flexbox para centrar la foto adentro */
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;        /* Evita que la caja se aplaste si el texto es largo */
+}
+
+/* La imagen adentro de la caja */
+.item-cart-img img {
+    width: 100%;           /* Forzamos a que ocupe todo el ancho del molde */
+    height: 100%;          /* Forzamos a que ocupe todo el alto del molde */
+    object-fit: cover;     /* ¡LA CLAVE! Hace zoom y llena el espacio de 120x120px */
+    display: block;
+}
+
+.cart-item-card {
+    display: flex;
+    align-items: center;   /* Centra la imagen, el texto y el botón verticalmente */
+    gap: 20px;             /* Separa los elementos de forma constante */
+    width: 100%;           /* Ocupa todo el ancho disponible */
+    border-bottom: 1px solid #333; /* Tu línea divisoria */
+    padding: 15px 0;
+}
+
+.cart-items-list{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
