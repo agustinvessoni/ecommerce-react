@@ -17,17 +17,16 @@ export const useCart = () => {
 }
 
 /* PROVIDER */
+
 export const CartProvider = ({ children }) => {
 
     const navigate = useNavigate();
     const [cart, setCart] = useState([]);
 
     /* Evalúa existencia. Devuelve booleano (some) */
-
     const isInCart = (item) => {
         const inCart = cart.some((element) => element.id === item.id);
         return inCart;
-
     };
 
     /* Vacía el carrito */
@@ -36,17 +35,24 @@ export const CartProvider = ({ children }) => {
     };
 
     /* Agregar al carrito */
-    const addItem = (item) => {
+    const addItem = (item, quantity) => {
 
         if (isInCart(item)) {
-            alert("El producto ya existe en el carrito.");
-            return
+            const updatedCart = cart.map(product => {
+                if (product.id === item.id) {
+                    return { ...product, quantity: product.quantity + quantity };
+                }
+                else {
+                    return product;
+                }
+            });
 
+            setCart(updatedCart);
         }
 
-        setCart([...cart, item]);
-        alert("Producto agregado al carrito ✅");
-
+        else {
+            setCart(prevCart => [...prevCart, { ...item, quantity }]);
+        }
     };
 
     /* Eliminar del carrito */
@@ -64,8 +70,7 @@ export const CartProvider = ({ children }) => {
 
     /* Total a pagar */
     const getCartTotal = () => {
-        return cart.reduce((acc, element) => acc + element.price, 0);
-
+        return cart.reduce((acc, element) => acc + (element.price * element.quantity), 0);
     };
 
     /* Checkout */
@@ -76,8 +81,28 @@ export const CartProvider = ({ children }) => {
 
     };
 
-    const values = { cart, addItem, clearCart, removeItem, getTotalItems, getCartTotal, checkout };
+    const increaseQuantity = (id) => {
+        setCart(cart.map(item => {
+            if (item.id === id) {
+                return { ...item, quantity: item.quantity + 1 };
+            } else {
+                return item;
+            }
+        }));
+    };
+
+    const decreaseQuantity = (id) => {
+        setCart(cart.map(item => {
+            if (item.id === id && item.quantity > 1) {
+                return { ...item, quantity: item.quantity - 1 };
+            } else {
+                return item;
+            }
+        }));
+    };
+
+    const values = { cart, addItem, clearCart, removeItem, getTotalItems, getCartTotal, checkout, increaseQuantity, decreaseQuantity };
 
     return <CartContext.Provider value={values}>{children}</CartContext.Provider>
-} 
+}
 

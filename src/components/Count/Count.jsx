@@ -1,16 +1,22 @@
 import React, { useState } from 'react'
 import "./Count.css"
 
-const Count = () => {
+const Count = ({ initial = 1, onAdd }) => {
 
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(initial);
 
     const increment = () => {
-        setCount(count + 1);
+        const nextCount = count + 1;
+        setCount(nextCount);       
+        onAdd(nextCount);   
     };
 
     const decrement = () => {
-        setCount(count - 1);
+        if (count > 1) {           
+            const nextCount = count - 1;
+            setCount(nextCount);
+            onAdd(nextCount);     
+        }
     };
 
     return (
@@ -18,15 +24,12 @@ const Count = () => {
             <button
                 className="btn primary"
                 onClick={decrement}
-                disabled={count === 0}
+                disabled={count === 1}
             >
                 -
             </button>
-
-            <p>Selección: {count}</p>
-
             <button className="btn primary" onClick={increment}>+</button>
-
+            <p>Cantidad: {count}</p>
         </div>
     )
 }

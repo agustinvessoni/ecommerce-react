@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import "./Cart.css"
 
 const Cart = () => {
-    const { cart, removeItem, clearCart, getCartTotal, checkout } = useCart();
 
-    // Renderizado condicional si el carrito está vacío
+    const { cart, removeItem, clearCart, getCartTotal, checkout, increaseQuantity, decreaseQuantity } = useCart();
+
     if (cart.length === 0) {
         return (
             <div className="cart-empty-container">
@@ -18,7 +18,6 @@ const Cart = () => {
         );
     }
 
-    // Renderizado del listado de productos
     return (
         <div className="cart-main-container">
             <h2 className="cart-main-title">Detalle de tu compra</h2>
@@ -31,10 +30,28 @@ const Cart = () => {
                         </div>
                         <div className="cart-item-info">
                             <h4 className="cart-item-name">{item.name}</h4>
-                            <p className="cart-item-price">Precio: $ {item.price}</p>
-                            <button onClick={() => removeItem(item.id)} className="btn-delete-item btn">
-                                Eliminar
-                            </button>
+                            <p className="cart-item-price">Precio unitario: $ {item.price}</p>
+                            <p className="cart-item-quantity">Cantidad: {item.quantity} </p>
+                            <p className="cart-item-subtotal">Subtotal: $ {item.price * item.quantity}</p>
+
+                            <div className="cart-quantity-controls">
+                                <button onClick={() => removeItem(item.id)} className="btn-delete-item btn">
+                                    Eliminar
+                                </button>
+                                <button
+                                    className="btn-qty btn"
+                                    onClick={() => decreaseQuantity(item.id)}
+                                    disabled={item.quantity === 1}
+                                >
+                                    -
+                                </button>
+                                <button
+                                    className="btn-qty btn"
+                                    onClick={() => increaseQuantity(item.id)}
+                                >
+                                    +
+                                </button>
+                            </div>
                         </div>
                     </div>
                 ))}
