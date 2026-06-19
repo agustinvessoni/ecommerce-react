@@ -15,7 +15,7 @@ const ItemDetail = ({ item }) => {
 
   const handleAddToCart = () => {
     addItem(item, quantity);
-    alert("Producto agregado al carrito ✔");
+    alert("Producto agregado al carrito ✅");
   };
 
   return (

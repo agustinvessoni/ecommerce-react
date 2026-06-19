@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 const CartContext = createContext();
 
 /* CUSTOM HOOK */
-
 export const useCart = () => {
     const context = useContext(CartContext);
 
@@ -13,23 +12,22 @@ export const useCart = () => {
     }
 
     return context;
-
-}
+};
 
 /* PROVIDER */
-
 export const CartProvider = ({ children }) => {
 
     const navigate = useNavigate();
     const [cart, setCart] = useState([]);
 
-    /* Evalúa existencia. Devuelve booleano (some) */
+    const MAX_QUANTITY = 10;
+
+    /* Evalúa existencia */
     const isInCart = (item) => {
-        const inCart = cart.some((element) => element.id === item.id);
-        return inCart;
+        return cart.some((element) => element.id === item.id);
     };
 
-    /* Vacía el carrito */
+    /* Vaciar carrito */
     const clearCart = () => {
         setCart([]);
     };
@@ -40,37 +38,50 @@ export const CartProvider = ({ children }) => {
         if (isInCart(item)) {
             const updatedCart = cart.map(product => {
                 if (product.id === item.id) {
-                    return { ...product, quantity: product.quantity + quantity };
+
+                    const newQuantity = product.quantity + quantity;
+
+                    return {
+                        ...product,
+                        quantity: newQuantity > MAX_QUANTITY
+                            ? MAX_QUANTITY
+                            : newQuantity
+                    };
                 }
-                else {
-                    return product;
-                }
+                return product;
             });
 
             setCart(updatedCart);
         }
 
         else {
-            setCart(prevCart => [...prevCart, { ...item, quantity }]);
+            setCart(prevCart => [
+                ...prevCart,
+                {
+                    ...item,
+                    quantity: quantity > MAX_QUANTITY ? MAX_QUANTITY : quantity
+                }
+            ]);
         }
     };
 
-    /* Eliminar del carrito */
-
+    /* Eliminar item */
     const removeItem = (id) => {
         const updatedCart = cart.filter(element => element.id !== id);
         setCart(updatedCart);
     };
 
-    /* Total de items en el carrito */
+    /* Total items */
     const getTotalItems = () => {
-        return cart.length;
-
+        return cart.reduce((acc, item) => acc + item.quantity, 0);
     };
 
-    /* Total a pagar */
+    /* Total precio */
     const getCartTotal = () => {
-        return cart.reduce((acc, element) => acc + (element.price * element.quantity), 0);
+        return cart.reduce(
+            (acc, element) => acc + (element.price * element.quantity),
+            0
+        );
     };
 
     /* Checkout */
@@ -78,31 +89,45 @@ export const CartProvider = ({ children }) => {
         alert("Su compra ha sido realizada 🎉");
         clearCart();
         navigate("/");
-
     };
 
+    /* Aumentar cantidad */
     const increaseQuantity = (id) => {
         setCart(cart.map(item => {
             if (item.id === id) {
+                if (item.quantity >= MAX_QUANTITY) return item;
+
                 return { ...item, quantity: item.quantity + 1 };
-            } else {
-                return item;
             }
+            return item;
         }));
     };
 
+    /* Disminuir cantidad */
     const decreaseQuantity = (id) => {
         setCart(cart.map(item => {
             if (item.id === id && item.quantity > 1) {
                 return { ...item, quantity: item.quantity - 1 };
-            } else {
-                return item;
             }
+            return item;
         }));
     };
 
-    const values = { cart, addItem, clearCart, removeItem, getTotalItems, getCartTotal, checkout, increaseQuantity, decreaseQuantity };
+    const values = {
+        cart,
+        addItem,
+        clearCart,
+        removeItem,
+        getTotalItems,
+        getCartTotal,
+        checkout,
+        increaseQuantity,
+        decreaseQuantity
+    };
 
-    return <CartContext.Provider value={values}>{children}</CartContext.Provider>
-}
-
+    return (
+        <CartContext.Provider value={values}>
+            {children}
+        </CartContext.Provider>
+    );
+};

@@ -15,6 +15,12 @@ const Nav = () => {
           <Link to={"/"} className='gold'>Inicio</Link>
         </li>
         <li>
+          <Link to={"/category/clasico"} className='gold'>Clásicos</Link>
+        </li>
+        <li>
+          <Link to={"/category/cronografo"} className='gold'>Cronógrafos</Link>
+        </li>
+        <li>
           <Link to={"/carrito"} className='gold'>
             Carrito
             {totalItems > 0 && <span className='incart'>{` (${totalItems})`}</span>}
