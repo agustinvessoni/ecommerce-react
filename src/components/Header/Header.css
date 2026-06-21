@@ -6,15 +6,10 @@ header {
   background-color: #1a1a1a; 
   border-bottom: 1px solid #c7b299;
   margin-bottom: 30px;
+  user-select: none;
 }
 
-.logo-container {
-  display: flex;
-  align-items: center;
-  font-size: 2rem;
-}
-
-header img{
-  height: 80px;
+.logo{
   width: auto;
+  height: 100px;
 }

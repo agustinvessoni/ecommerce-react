@@ -1,0 +1,143 @@
+/* ==========================================
+   Estilos para el Dashboard de Administración
+   ========================================== */
+
+.dashboard {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #121212; 
+    color: #ffffff;
+    border: 1px solid #222222;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #222222;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.dashboard-header h2 {
+    color: #c7b299;
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.header-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.dashboard .btn {
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard .btn.primary {
+    background-color: #c7b299;
+    border: 1px solid #c7b299;
+    color: #121212;
+}
+
+.dashboard .btn.primary:hover {
+    background-color: transparent;
+    color: #ffffff;
+    box-shadow: 0 0 12px rgba(199, 178, 153, 0.3);
+}
+
+.dashboard .btn.bg-delete {
+    border-color: #721c24;
+    color: #f8d7da;
+    background-color: #721c24;
+}
+
+.dashboard .btn.bg-delete:hover {
+    background-color: transparent;
+    color: #ffffff;
+    box-shadow: 0 0 12px rgba(114, 28, 36, 0.4);
+}
+
+.dashboard-actions, 
+.dashboard-help {
+    margin-bottom: 35px;
+}
+
+.dashboard h3 {
+    color: #888888;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.action-card {
+    background-color: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    padding: 25px;
+    text-align: center;
+    border-radius: 4px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.action-card:not(.disabled):hover {
+    border-color: #c7b299; 
+    background-color: #222222;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(199, 178, 153, 0.1);
+    color: #c7b299;
+}
+
+.action-card.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none; 
+    background-color: #0f0f0f;
+    border-color: #1a1a1a;
+}
+
+.dashboard-help p {
+    color: #aaaaaa;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    background-color: #161616;
+    padding: 15px 20px;
+    border-left: 3px solid #c7b299;
+    border-radius: 0 4px 4px 0;
+}

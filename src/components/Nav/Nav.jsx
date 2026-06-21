@@ -23,7 +23,9 @@ const Nav = () => {
         <li>
           <Link to={"/carrito"} className='gold'>
             Carrito
-            {totalItems > 0 && <span className='incart'>{` (${totalItems})`}</span>}
+            {totalItems > 0 && (
+              <span className='incart'>{totalItems}</span>
+            )}
           </Link>
         </li>
       </ul>

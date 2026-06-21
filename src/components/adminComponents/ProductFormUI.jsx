@@ -52,7 +52,7 @@ export const ProductFormUI = ({
 
                 <div>
                     <label>Descripción: </label>
-                    <input
+                    <textarea
                         name="description"
                         value={product.description}
                         onChange={onChange}

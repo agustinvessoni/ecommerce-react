@@ -8,7 +8,7 @@ export const ProductSuccess = () => {
   return(
     <section className="success-page">
         <h2>Producto cargado con éxito ✅ </h2>
-        <p>ID de producto: {id}</p>
+        <p>ID de producto: <strong>{id}</strong></p>
         <p>Puede cargar otro haciendo click en el botón.</p>
 
         <button
