@@ -18,7 +18,7 @@ const Nav = () => {
           <Link to={"/category/clasico"} className='gold'>Clásicos</Link>
         </li>
         <li>
-          <Link to={"/category/cronografo"} className='gold'>Cronógrafos</Link>
+          <Link to={"/category/deportivo"} className='gold'>Deportivos</Link>
         </li>
         <li>
           <Link to={"/carrito"} className='gold'>
