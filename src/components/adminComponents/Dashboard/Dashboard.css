@@ -141,3 +141,45 @@
     border-left: 3px solid #c7b299;
     border-radius: 0 4px 4px 0;
 }
+
+
+
+@media (max-width: 768px) {
+
+  .dashboard {
+    margin: 20px 10px;
+    padding: 20px;
+  }
+  
+  .dashboard-header {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .dashboard-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .header-actions .btn {
+    width: 100%;
+  }
+
+  .actions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .action-card {
+    width: 100%;
+  }
+
+  .dashboard-help p {
+    font-size: 0.95rem;
+  }
+}
